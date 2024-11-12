@@ -28,7 +28,7 @@ class Auto:
     def __init__(self, modelo, precio, asientos, marca, motor, registro):
         self.modelo = modelo
         self.precio = precio
-        self.asientos = asientos
+        self.asientos = asientos  # Lista de objetos Asiento
         self.marca = marca
         self.motor = motor
         self.registro = registro
@@ -38,7 +38,10 @@ class Auto:
         return sum(1 for asiento in self.asientos if isinstance(asiento, Asiento))
 
     def verificarIntegridad(self):
-        registros = [self.registro, self.motor.registro] + [asiento.registro for asiento in self.asientos]
+        registros = [self.registro, self.motor.registro] + [
+            asiento.registro for asiento in self.asientos if asiento is not None
+        ]
+        
         if all(registro == self.registro for registro in registros):
             return "Auto original"
         else:
