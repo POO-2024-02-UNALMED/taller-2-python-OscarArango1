@@ -28,7 +28,7 @@ class Auto:
     def __init__(self, modelo, precio, asientos, marca, motor, registro):
         self.modelo = modelo
         self.precio = precio
-        self.asientos = asientos  # Lista de objetos Asiento
+        self.asientos = asientos
         self.marca = marca
         self.motor = motor
         self.registro = registro
@@ -43,3 +43,4 @@ class Auto:
             return "Auto original"
         else:
             return "Las piezas no son originales"
+
